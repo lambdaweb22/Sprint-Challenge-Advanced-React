@@ -11,9 +11,14 @@ function App() {
       <header className="App-header">
         Sprint Challenge
       </header>
-      <div>
+      <div className="wrapper">
         {console.log(playerData)}
-        {/* {console.log(result)} */}
+        {playerData.map(player => (
+          <div className="player-wrapper">
+            <div>Name: {player.name}</div>
+            <div>Country: {player.country}</div>
+          </div>
+        ))}
       </div>
     </div>
   );

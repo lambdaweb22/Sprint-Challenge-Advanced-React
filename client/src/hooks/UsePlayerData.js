@@ -12,8 +12,6 @@ const UsePlayerData = () => {
     }, []);
 
     return [...playerData, setPlayerData];
-    // var result = playerData.map(player => ({ id: player.id, name: player.name }));
-    // return result;
 }
 
 export default UsePlayerData;
