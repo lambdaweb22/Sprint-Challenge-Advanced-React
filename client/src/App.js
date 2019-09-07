@@ -1,27 +1,41 @@
 import React from 'react';
+import axios from 'axios';
 import './App.css';
+import PlayerCard from './components/PlayerCard';
+import NavBar from './components/NavBar';
 
-import UsePlayerData from './hooks/UsePlayerData';
 
-function App() {
-  const playerData = UsePlayerData([]);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        Sprint Challenge
-      </header>
-      <div className="wrapper">
-        {console.log(playerData)}
-        {playerData.map(player => (
-          <div className="player-wrapper">
-            <div>Name: {player.name}</div>
-            <div>Country: {player.country}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+class App extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        data: [],
+        err: ""
+      }
+    }
+
+    componentDidMount() {
+      axios
+        .get('http://localhost:5000/api/players')
+        .then(res => {
+          this.setState({ data: res.data })
+        })
+        .then(err => {
+          this.setState({ err: `API currently isn't working, please try again later. ${err}` })
+        })
+    }
+
+    render() {
+      return(
+        <div className="App">
+            <NavBar />
+            {this.state.data.map(player => {
+              return <PlayerCard player={player} />;
+            })}
+        </div>
+      )
+    };
 }
 
 export default App;
