@@ -9,7 +9,7 @@ class PlayerCard extends React.Component {
     render() {
         console.log(this.props.player);
         return (
-            <div className="player-wrapper">
+            <div className="container">
                 <div className="player-card">
                     <p>Name: {this.props.player.name}</p>
                     <p>Country: {this.props.player.country}</p>

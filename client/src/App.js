@@ -30,9 +30,11 @@ class App extends React.Component {
       return(
         <div className="App">
             <NavBar />
-            {this.state.data.map(player => {
-              return <PlayerCard player={player} />;
-            })}
+            <div className="player-wrapper">
+              {this.state.data.map(player => {
+                return <PlayerCard player={player} />;
+              })}
+            </div>
         </div>
       )
     };
