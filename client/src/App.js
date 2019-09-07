@@ -3,9 +3,6 @@ import axios from 'axios';
 import './App.css';
 import PlayerCard from './components/PlayerCard';
 import NavBar from './components/NavBar';
-
-
-
 class App extends React.Component {
     constructor() {
       super();
